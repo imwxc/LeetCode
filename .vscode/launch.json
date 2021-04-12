@@ -6,16 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch myList",
+            "name": "Launch MyQueue",
             "request": "launch",
-            "mainClass": "src.myList",
-            "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
-            "name": "Launch SparseArray",
-            "request": "launch",
-            "mainClass": "src.SparseArray",
+            "mainClass": "src.MyQueue",
             "projectName": "LeetCode_b7bff1cc"
         },
         {
