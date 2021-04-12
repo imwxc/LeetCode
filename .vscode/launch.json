@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch myList",
+            "request": "launch",
+            "mainClass": "src.myList",
+            "projectName": "LeetCode_b7bff1cc"
+        },
+        {
+            "type": "java",
+            "name": "Launch SparseArray",
+            "request": "launch",
+            "mainClass": "src.SparseArray",
+            "projectName": "LeetCode_b7bff1cc"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "src.App",
+            "projectName": "LeetCode_b7bff1cc"
+        },
+        {
+            "type": "java",
+            "name": "Launch DataStruct",
+            "request": "launch",
+            "mainClass": "src.DataStruct",
+            "projectName": "LeetCode_b7bff1cc"
+        },
+        {
+            "type": "java",
+            "name": "Launch ToOffer",
+            "request": "launch",
+            "mainClass": "src.ToOffer",
+            "projectName": "LeetCode_b7bff1cc"
+        }
+    ]
+}
