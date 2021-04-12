@@ -1,3 +1,14 @@
 {
-    "python.pythonPath": "D:\\ProgramData\\Anaconda3\\envs\\Pytorch\\python.exe"
+    "python.pythonPath": "D:\\ProgramData\\Anaconda3\\envs\\Pytorch\\python.exe",
+    "code-runner.executorMap": {
+        // "javascript": "node",
+        // "php": "C:\\php\\php.exe",
+        // "python": "python",
+        // "perl": "perl",
+        // "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+        // "go": "go run",
+        // "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
+        "java": "cd $dir && javac -d. $fileName && java app.$fileNameWithoutExt",
+        // "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+     }
 }
