@@ -106,7 +106,7 @@ public class myStack{
     public int peek_num(){
         return this.stack[this.top].no;
     }
-
+    
     public static void main(String[] args){
         myStack stack=new myStack(10);
         stack.push(new HeroNode(1,"宋江","及时雨"));
