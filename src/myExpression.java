@@ -1,4 +1,4 @@
-package src;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +23,11 @@ public class myExpression {
         // ReversePolish myReversePolish=new ReversePolish(reversePolish);
 
         // System.out.println("\n"+reversePolish+" = "+myReversePolish.getResult());
-        String expression="1+((2+3)*4)-5";
+        String expression="1+2+3*4-5";
         System.out.println(expression+" = "+new ReversePolish_Calculator(expression).getResult());
+        
+
+
     }
 }
 class ReversePolish{
@@ -44,7 +47,7 @@ class ReversePolish{
         this.expression = expression;
         this.result =0;
         this.list=new ArrayList();
-        for(String str:expression.split(" ")){
+        for(String str:expression.trim().split(" ")){
             list.add(str);
         }
     }
@@ -58,23 +61,23 @@ class ReversePolish{
         for(String str:list){
             res+=" "+str;
         }
-        return res;
+        return res.trim();
     }
     public int getResult(){
-        myStack stack=new myStack(this.list.size());
+        Stack<Integer> stack=new Stack();
         for(String item:this.list){
             if(item.matches("\\d+")){
                 stack.push(Integer.parseInt(item));
             }else{
-                int num2=stack.pop_int();
-                int num1=stack.pop_int();
+                int num1=stack.pop();
+                int num2=stack.pop();
                 int oper=item.charAt(0);
                 int result=0;
                 result=calculate(num1,num2,oper);
                 stack.push(result);
             }
         }
-        this.result=stack.pop_int();
+        this.result=stack.pop();
         return this.result;
     }
     public String getReversePolish(String expression){
@@ -111,8 +114,8 @@ class ReversePolish_Calculator{
     ReversePolish rp;
     int result;
     ReversePolish_Calculator(String expression){
-        rp = new ReversePolish(toReversePolish(expression));
-        result=rp.getResult();
+        this.rp = new ReversePolish(toReversePolish(expression));
+        this.result=this.rp.getResult();
     }
     public int getResult() {
         return this.result;

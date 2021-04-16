@@ -1,4 +1,4 @@
-package src;
+
 class HeroNode {
     int no;
     String name;

@@ -1,4 +1,4 @@
-package src;
+
 import java.util.ArrayList;
 class SparseArray extends DataStruct{
     public SparseArray(){super();};
