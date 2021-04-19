@@ -2,7 +2,18 @@ public class myEightQueen {
     public static void main(String[] args){
         
     }
+    int max;
+
+    int queens[]; //保存最后皇后放置的位置
+
+
+    myEightQueen(int max){
+        this.max =max;
+        queens=new int[max];
+    }
     myEightQueen(){
+        this.max=8;
+        this.queens=new int[max];
 
     }
     /**
@@ -21,4 +32,8 @@ public class myEightQueen {
      * 可以利用一个一维数组就解决问题,
      * 数组下标代表行和第几个皇后，数组内容代表列（利用了任意两个皇后不能同一行同一列）
      */
+
+     public void show_result(){
+
+     }
 }
