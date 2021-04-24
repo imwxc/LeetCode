@@ -6,45 +6,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch MyQueue",
-            "request": "launch",
-            "mainClass": "src.MyQueue",
-            "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",
             "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "src.App",
-            "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
-            "name": "Launch DataStruct",
-            "request": "launch",
-            "mainClass": "src.DataStruct",
-            "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
-            "name": "Launch ToOffer",
-            "request": "launch",
-            "mainClass": "src.ToOffer",
-            "projectName": "LeetCode_b7bff1cc"
-        },
-        {
-            "type": "java",
-            "name": "Launch myRecursion",
-            "request": "launch",
-            "mainClass": "src.myRecursion",
-            "projectName": "LeetCode_b7bff1cc"
-        },
+        }
     ]
 }
