@@ -88,8 +88,8 @@ public class Sort {
     }
     public static void ShellSort(int[] sort,boolean sort_time) {
         ShellSort ss= new ShellSort();
-        ss.Sort_swap(sort);
-        // ss.Sort_insert(sort);
+        // ss.Sort_swap(sort);
+        ss.Sort_insert(sort);
         
     }
     public static void main(String[] args){
@@ -238,18 +238,21 @@ class ShellSort extends Sort{
         for(int stride=sort.length/2; stride>0;stride/=2){ // n /=2 为logN 
             //从stride个元素开始对其所在组进行插入排序 
             for(int i=stride;i<sort.length;i++){ // 这里有n轮移动
-                int j=i; // 遍历有序表并记录空出的位置
-                int temp=sort[j];
-                if(sort[j]<sort[j-stride]){
-                    for(j=i;j>0 && sort[j-stride]>temp;j-=stride){//sort[j-1] 到 sort[0] 为有序表
-                        sort[j] = sort[j-stride];// 将有序表中大于temp的数字向后移动
+                int toInsert=i; // 待插入的位置
+                int temp=sort[toInsert];// 待插入的值
+                if(sort[toInsert]<sort[toInsert-stride]){// 如果子序列中前一个数小于后一个就向后寻找
+                    for(;toInsert-stride>=0 && sort[toInsert-stride]>temp;toInsert-=stride){//sort[toInsert-1] 到 sort[0] 为有序表
+                        sort[toInsert] = sort[toInsert-stride];// 将有序表中大于temp的数字向后移动
                     }
-                    sort[j] =temp;//将temp插入到空出的位置
+                    sort[toInsert] =temp;//将temp插入到空出的位置
                 }
             }
             if(this.show){
                 print_sort(sort);
             }
         }
+    }
+    public void Sort(int[] sort) {
+        this.Sort_insert(sort);
     }
 }
