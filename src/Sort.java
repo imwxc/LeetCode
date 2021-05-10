@@ -92,14 +92,21 @@ public class Sort {
         ss.Sort_insert(sort);
         
     }
+    public static void QuickSort(int[] sort,boolean sort_time) {
+        QuickSort ss= new QuickSort();
+        ss.Sort(sort);
+    }
     public static void main(String[] args){
         // int sort[] = {3,9,-1,10,-2};
         int sort[]={8,9,1,7,2,3,5,4,6,0};
-        int sorted[]={-2,-1,3,9,10};
-        // BubbleSort(sort,true);//  1058943
-        // SelectSort(sort,true); 111816
-        // InsertSort(sort, true);
-        ShellSort(sort, true);
+        int sort1[]={-2,-1,3,9,10};
+        int sort2[]={0,3,5,7,8,5,2,5,3,4,7};
+        boolean sort_time=true;
+        // BubbleSort(sort,sort_time);//  1058943
+        // SelectSort(sort,sort_time); 111816
+        // InsertSort(sort, sort_time);
+        // ShellSort(sort, sort_time);
+        QuickSort(sort, sort_time);
     }
 }
 class BubbleSort extends Sort{
@@ -240,8 +247,8 @@ class ShellSort extends Sort{
             for(int i=stride;i<sort.length;i++){ // 这里有n轮移动
                 int toInsert=i; // 待插入的位置
                 int temp=sort[toInsert];// 待插入的值
-                if(sort[toInsert]<sort[toInsert-stride]){// 如果子序列中前一个数小于后一个就向后寻找
-                    for(;toInsert-stride>=0 && sort[toInsert-stride]>temp;toInsert-=stride){//sort[toInsert-1] 到 sort[0] 为有序表
+                if(sort[toInsert]<sort[toInsert-stride]){// 如果子序列中后一个数小于前一个就进行插入操作, toinsert-stride 表示子序列前面的那个数
+                    for(;toInsert-stride>=0 && sort[toInsert-stride]>temp;toInsert-=stride){//sort[toInsert-1] 到 sort[0] 为有序表,toinsert-stride=0时，子序列表示子序列有序了
                         sort[toInsert] = sort[toInsert-stride];// 将有序表中大于temp的数字向后移动
                     }
                     sort[toInsert] =temp;//将temp插入到空出的位置
@@ -254,5 +261,91 @@ class ShellSort extends Sort{
     }
     public void Sort(int[] sort) {
         this.Sort_insert(sort);
+    }
+}
+class QuickSort extends Sort{
+    boolean show;
+    QuickSort(){
+        super();
+        this.show=true;
+    }
+    /**
+     * 基本思想：通过一趟排序将要排序的数据分成两部分，一部分中所有数据都比另外一部分的数据要小，
+     * 然后再按此方法对这两部分数据分布进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列
+     * 
+     * 思路分析：
+     * 
+     * 
+     * 
+     * 
+     * @param sort
+     */
+    public void sort(int[] sort,int low,int high) {
+
+        int l=low;
+        int r=high;
+
+        if(l>r){
+            return;
+        }
+        int  middle=sort[(low+high)/2];
+        //将比middle小的值放到左边，将比middle大的值放到右边
+        while(l<r){
+            //low向右移动，在左边找到一个比基准大的数
+            for(;sort[l]<middle;l++){}
+            //high向左移动，在右边找到一个比基准小的数
+            for(;middle<sort[r];r--){}
+            if(l>=r){
+                break;
+            }
+            //找到之后将两数交换
+            swap(sort, l, r);
+            print_sort(sort);
+            //如果有和基数相同的数字存在时，没有下面的移动会导致low，high的位置不再改变形成死循环
+            if(sort[l]==middle){//如果交换完毕后发现middle==sort[low]，则high--
+                r--;
+            }else if(sort[r]==middle){//如果交换完毕后发现middle==sort[high]，则low++
+                l++;
+            }
+        }
+        //此时递归对左右子序列进行排序,l==r的时候，表示基数左右排序完毕
+        //移动后 l表示右子序列第一个，r表示左子序列最后一个
+        if(l==r){
+            l++; 
+            r--;
+        }
+        if(low<r){//左边存在没有排序的子序列，就进行递归排序
+            sort(sort, low, r);
+        }
+        if(high>l){//右边存在没有排序的子序列，进行递归排序
+            sort(sort, l, high);
+        }
+        
+    }
+    public void Sort(int[] sort) {
+        print_sort(sort);
+        this.sort(sort,0,sort.length-1);
+    }
+}
+class MergeSort extends Sort{
+    boolean show;
+    MergeSort(){
+        super();
+        this.show = true;
+    }
+    /**、
+     * 采用分治法策略，将问题分为小问题然后递归求解，然后将小问题求解得到的答案合并到一起
+     */
+    public void Sort(int[] sort) {
+        
+    }
+    void mergeSort(int[] sort,int i,int j){
+        
+    }
+    /**
+     * 
+     */
+    void merge(int[] sort,int left,int middle,int right){
+
     }
 }
