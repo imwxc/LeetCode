@@ -34,8 +34,10 @@ function V1({nums1, m, nums2, n}){
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
+
+// eslint-disable-next-line no-unused-vars
 var merge = function(nums1, m, nums2, n) {
-    const res = V1({numms1, m, muns2, n})
+    const res = V1({nums1, m, nums2, n})
     return res
 };
 // @lc code=end
