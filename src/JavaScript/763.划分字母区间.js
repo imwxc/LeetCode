@@ -48,10 +48,6 @@ var partitionLabels = function (s) {
      * 当访问到 该字母的数组下标时， 当前片段结束， 
      * 将 end-start+1（当前片段的长度） 放入结果中 
      *  然后设置开头为 start = end+1 查找下一个片段
-     * 
-     * 
-     * 
-     * 
      */
 
 	for (let i = 0; i < s.length; i++) {
