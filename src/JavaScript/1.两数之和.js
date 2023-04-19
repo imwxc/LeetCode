@@ -43,7 +43,7 @@ function V2(nums=[],target){
  */
 var twoSum = function(nums, target) {
     // res = V1(nums,target)
-    res = V2(nums,target)
+    const res = V2(nums,target)
     return res
 };
 // @lc code=end
