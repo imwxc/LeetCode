@@ -4,15 +4,12 @@
  * [912] 排序数组
  * 思路：
  * V1: 快排实现
+ * V2：归并排序实现
  */
 
 // @lc code=start
 
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var sortArray = function(nums) {
+var V1 = function(nums){
     const res = nums.slice(0,nums.length)
     function swap(idx1, idx2, nums){
         const temp = nums[idx1];
@@ -56,19 +53,69 @@ var sortArray = function(nums) {
         quickSort(nums, low, p-1) // 因为p以及在正确位置了， 所以不用排
         quickSort(nums, p+1, high) // 因为p以及在正确位置了， 所以不用排
     }
-    
+    if(nums.length == 1) return nums
+    const random = randomList(nums)
+    quickSort( random, 0, nums.length -1)
+    return nums
+}
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var V2 = function(nums){
+    const temp = new Array(nums.length)
     /**
      * @param {number[]} nums
+     * @param {number} left
+     * @param {number} right
      * @return {number[]}
      */
-    function V1(nums){
-        if(nums.length == 1) return nums
-        const random = randomList(nums)
-        quickSort( random, 0, nums.length -1)
-        return nums
+    function sort(nums, left, right){
+        if(left == right) return 
+        let mid = left + Math.floor((right - left)/2)
+        sort(nums,left, mid)
+        sort(nums, mid+1, right)
+        merge(nums, left, mid, right)
     }
-    return V1(res)
+    function merge(nums, left, mid, right){
+        for(let i=left; i<=right; i++){
+            temp[i] = nums[i]
+        }
+        let pl = left;
+        let pr = mid+1;
+        for(let p=left; p<=right; p++){
+            if(pl == mid+1){
+                // 左边完全合并了, 将右边的全部放进去
+                nums[p] = temp[pr]
+                pr++
+            }else if(pr == right +1){
+                // 右边完全合并了， 将左边的全部放进去
+                nums[p] = temp[pl]
+                pl++
+            }else if( temp[pr] < temp[pl] ){
+                // 右边比左边小时， 右边放前面, 然后右侧移动
+                nums[p] = temp[pr]
+                pr++
+            }else if(temp[pr] >= temp[pl]){
+                // 左边比右边小时， 左边放前面，然后左侧移动
+                nums[p] = temp[pl]
+                pl++
+            }
+        }
+    }
+    sort(nums, 0, nums.length-1)
+    return nums
+}
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArray = function(nums) {
     // return nums.sort((a,b)=>(a-b))
+    // return V1(nums)
+    return V2(nums)
 };
 // @lc code=end
 
