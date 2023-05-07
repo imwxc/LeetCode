@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init-eslint": "npm init @eslint/config"
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/imwxc/LeetCode#readme",
   "devDependencies": {
-    "@datastructures-js/priority-queue": "^6.2.0",
+    "@datastructures-js/priority-queue": "5.3.0",
     "eslint": "^8.38.0",
     "eslint-config-standard": "^17.0.0"
   }
