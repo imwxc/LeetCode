@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=102 lang=javascript
+ * @lc app=leetcode.cn id=107 lang=javascript
  *
- * [102] 二叉树的层序遍历
+ * [107] 二叉树的层序遍历 II
  */
 
 // @lc code=start
@@ -17,7 +17,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var levelOrderBottom = function(root) {
     let res= []
     if(!root) return res
     let queue = []
@@ -33,7 +33,7 @@ var levelOrder = function(root) {
         }
         res.push(thisLayer)
     }
-    return res
+    return res.reverse()
 };
 // @lc code=end
 
